@@ -2,17 +2,21 @@ import Immutable from 'immutable'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from './container/app_container'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import reducer from './reducer'
 import io from 'socket.io-client';
 import { Provider } from 'react-redux'
+import remoteActionMiddleware from './remote_action_middleware'
+import { setState } from './action_creators'
 
-const store = createStore(reducer)
 
 const socket = io.connect("http://localhost:8091");
 socket.on('state', state => {
-  store.dispatch({type: 'SET_STATE', state})
+  store.dispatch(setState(state))
 });
+
+const createStoreWithMiddleware = applyMiddleware(remoteActionMiddleware(socket))(createStore);
+const store = createStoreWithMiddleware(reducer);
 
 function render() {
   ReactDOM.render(
