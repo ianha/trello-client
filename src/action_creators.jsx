@@ -29,6 +29,8 @@ export function updateCard(description, bucketId, cardId) {
     type: 'UPDATE_CARD',
     bucketId,
     cardId,
-    description
+    fields : {
+      description
+    }
   }
 }
