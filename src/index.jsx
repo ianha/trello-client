@@ -1,7 +1,7 @@
 import Immutable from 'immutable'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from './container/app_container'
+import { AppContainer } from './containers/app_container'
 import { createStore, applyMiddleware } from 'redux'
 import reducer from './reducer'
 import io from 'socket.io-client';

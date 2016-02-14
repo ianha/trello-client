@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Card from '../component/card'
+import Card from '../components/card'
 import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
 
