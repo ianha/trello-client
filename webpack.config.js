@@ -1,4 +1,6 @@
 var webpack = require('webpack');
+var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: [
@@ -11,6 +13,11 @@ module.exports = {
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
 			loader: 'react-hot!babel'
+		},
+		{
+			test: /\.scss$/,
+			include: /src/,
+			loaders: ["style", "css", "sass"]
 		}]
 	},
 	resolve: {

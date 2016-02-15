@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import styles from '../styles/layouts/board.scss'
 
 export default class Card extends Component {
     render() {
       return (
-        <div>
+        <div className="card">
           <h3>Story: {this.props.card.get('title')}</h3>
           <div>
             <input type="text" defaultValue={this.props.card.get('description')} ref={node => { this.description = node }} />

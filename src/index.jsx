@@ -9,7 +9,6 @@ import { Provider } from 'react-redux'
 import remoteActionMiddleware from './remote_action_middleware'
 import { setState } from './action_creators'
 
-
 const socket = io.connect("http://localhost:8091");
 socket.on('state', state => {
   store.dispatch(setState(state))

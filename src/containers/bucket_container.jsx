@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import Card from '../components/card'
 import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
+import styles from '../styles/layouts/board.scss'
 
 class Bucket extends Component {
   render() {
     return (
-      <div style={{float: 'left'}}>
+      <div className="bucket">
         <h1>Bucket: {this.props.bucket.get('title')}</h1>
         <div>
           <input type="text" ref={node => { this.title = node }} />
