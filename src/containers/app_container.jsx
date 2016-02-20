@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
 import { BucketContainer } from './bucket_container'
+import dragula from 'dragula'
 
 class App extends Component {
+  componentDidMount() {
+    const container = document.querySelector('#bucket-container')
+    dragula([container])
+  }
   render() {
     return (
       <div>
@@ -12,7 +17,7 @@ class App extends Component {
           <input type="text" ref={node => { this.title = node }} />
           <button onClick={() => this.props.createBucket(this.title.value)}>New Bucket</button>
         </div>
-        <div>
+        <div id="bucket-container">
           {this.props.buckets.map((bucket, i) => {
             return <BucketContainer bucket={bucket} key={i} />
           })}
