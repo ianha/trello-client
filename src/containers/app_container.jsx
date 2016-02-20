@@ -6,8 +6,13 @@ import dragula from 'dragula'
 
 class App extends Component {
   componentDidMount() {
-    const container = document.querySelector('#bucket-container')
-    dragula([container])
+    const containers = Array.from(document.querySelectorAll('.card-container'))
+    containers.push(document.querySelector('#bucket-container'))
+    dragula(containers, {
+      accepts: function (el, target, source, sibling) {
+        return target === source
+      }
+    })
   }
   render() {
     return (

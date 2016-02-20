@@ -14,7 +14,7 @@ class Bucket extends Component {
           <input type="text" ref={node => { this.description = node }} />
           <button onClick={() => this.props.addCard(this.title.value, this.description.value, this.props.bucket.get('bucketId'))}>New Card</button>
         </div>
-        <div>
+        <div className="card-container">
           {this.props.bucket.get('cards').map((card, i) => {
             return <Card card={card} bucketId={this.props.bucket.get('bucketId')} updateCard={this.props.updateCard} key={i} />
           })}
