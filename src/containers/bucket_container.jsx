@@ -7,7 +7,7 @@ import styles from '../styles/layouts/board.scss'
 class Bucket extends Component {
   render() {
     return (
-      <div className="bucket">
+      <div className="bucket" data-bucket-id={this.props.bucket.get('bucketId')}>
         <h1>Bucket: {this.props.bucket.get('title')}</h1>
         <div>
           <input type="text" ref={node => { this.title = node }} />

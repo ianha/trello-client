@@ -13,6 +13,15 @@ export function createBucket(title) {
   }
 }
 
+export function moveBucket(bucketId, index) {
+  return {
+    meta: { remote: true },
+    type: 'MOVE_BUCKET',
+    bucketId,
+    index
+  }
+}
+
 export function addCard(title, description, bucketId) {
   return {
     meta: { remote: true },
@@ -32,5 +41,15 @@ export function updateCard(description, bucketId, cardId) {
     fields : {
       description
     }
+  }
+}
+
+export function moveCard(bucketId, cardId, index) {
+  return {
+    meta: { remote: true },
+    type: 'MOVE_CARD',
+    bucketId,
+    cardId,
+    index
   }
 }
